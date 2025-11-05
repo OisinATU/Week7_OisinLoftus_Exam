@@ -56,16 +56,58 @@ public class OrderAppClass {
 
                     Orders newOrder = new Orders(orderId, customerName, productName, price, quantity, totalPrice);
                     orders.add(newOrder);
+
+
                     break;
                 case 2:
 
-             
+                    System.out.println("Please enter orderID:\n");
+                    String orderID = sc.nextLine();
+
+                    for (Orders n: orders) {
+                        if(n.getOrderId().contains(orderID)){
+
+                            System.out.println("Customer name:\n");
+                            n.setCustomerName(sc.nextLine());
+
+                            System.out.println("Product name:\n");
+                            n.setProductName(sc.nextLine());
+
+                            System.out.println("Price:\n");
+                            price = sc.nextDouble();
+                            sc.nextLine();
+                            n.setPrice(price);
+
+
+                            System.out.println("Quantity:\n");
+                            quantity = sc.nextInt();
+                            sc.nextLine();
+                            n.setQuantity(quantity);
+
+                            System.out.println("Total Price:\n");
+                            totalPrice = quantity*price;
+                            n.setTotalPrice(totalPrice);
+
+
+
+
                         }
                     }
 
 
                     break;
                 case 3:
+                    for (Orders n: orders) {
+                        n.toString();
+                        System.out.println("Order{" +
+                                "orderId='" + n.orderId + '\'' +
+                                ", customerName='" + n.customerName + '\'' +
+                                ", productName='" + n.productName + '\'' +
+                                ", price=" + n.price +
+                                ", quantity=" + n.quantity +
+                                ", totalPrice=" + n.totalPrice +
+                                '}');
+                    }
                     break;
                 case 4:
                     active = false;
